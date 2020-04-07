@@ -30,6 +30,8 @@ $(document).ready(function () {
     var movieSelection = $('#movies').val().split(',');
     var time = $('#time').val();
     var newTicket = new MovieTicket(movieSelection[0], time, movieSelection[1]);
-    alert(newTicket.calcPrice())
+    var price = newTicket.calcPrice()
+    $('#movie-confirm').html(`<h2>${price < 7 ? 'you got a discount! your total is: $' + price : 'your total is: $' + price}</h2>`)
+    //alert(`you owe: $${newTicket.calcPrice()}`)
   })
 });
